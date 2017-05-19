@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="util-collection_2.10-6.34.0-sources">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/twitter/util-collection_2.10/6.34.0/util-collection_2.10-6.34.0-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="jar://$MAVEN_REPOSITORY$/com/twitter/util-collection_2.10/6.34.0/util-collection_2.10-6.34.0-sources.jar!/" recursive="false" type="SOURCES" />
+  </library>
+</component>
