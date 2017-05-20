@@ -4,7 +4,7 @@ import entity.{IPRegion, NginxLogEvent, StatsRecord}
 import extract.ETLProcess
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.Row
+import org.apache.spark.sql.{Row, SQLContext}
 import org.apache.spark.{SparkConf, SparkContext}
 import utils.{BroadcastUtils, IPService, LocalDataUtils}
 
@@ -24,25 +24,48 @@ object LocalProcess {
       .set("spark.shuffle.memoryFraction", "0.5") //shuffle可使用的内存，默认0.2
 
     val sc = new SparkContext(sparkConf)
-    process(sc)
+    val sqlContext = new SQLContext(sc)
+
+    process(sc,sqlContext)
   }
 
 
   def processShow(etlRdd: RDD[NginxLogEvent]): Unit = {
-    etlRdd.map(ETLProcess.map2KV(_))
+    print("====================== output ========================")
+    val finalRdd = etlRdd.map(ETLProcess.map2KV(_))
     .reduceByKey((a: StatsRecord, b: StatsRecord) => StatsRecord.add(a, b), 108)
     .map(_._2)
     .map(x => Row(x.reqTime, x.bodySize, x.xx2, x.xx3, x.xx4, x.xx5, x.requestNum, x.domainCode, x.stateCode, x.ts))
-    .foreach(println)
 
+    ETLProcess.showDataframe(finalRdd)
   }
 
 
 
-  def process(sc: SparkContext): Unit = {
+  def process(sc: SparkContext, sQLContext: SQLContext): Unit = {
     val businessMap = BroadcastUtils.getBusinessMap(sc)
+    println("businessMap: ")
+    val businessMapValue = businessMap.value
+    businessMapValue.map(ite =>{
+      println("key: " + ite._1.toString + "  value: " + ite._2.toString)
+    })
+    println(businessMap.toString())
+    println("======================")
     val ipArray = BroadcastUtils.getIpArray(sc)
+
+    println("ipArray: ")
+    val ipArrayValue = ipArray.value
+    ipArrayValue.map(ite => {
+      println("region: " + ite.region)
+    })
+    println("======================")
     val localdata = LocalDataUtils.getDataFromLocalFile(sc)
+    println("fileData: ")
+
+//    localdata.map(ite => {
+//      println(ite.toString)
+//    })
+    println("======================")
     val etlRdd = processETL(localdata, businessMap, ipArray)
     //打印
     processShow(etlRdd)

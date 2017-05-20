@@ -3,6 +3,9 @@ package extract
 import entity.{NginxLogEvent, StatsRecord}
 import org.apache.commons.lang.StringUtils
 import org.apache.spark.broadcast.Broadcast
+import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.{Row, SQLContext}
+import prototype.StatsCalculate
 import utils.{ConfigLoader, DateUtils, IPService}
 
 import scala.util.control.Breaks
@@ -11,6 +14,16 @@ import scala.util.control.Breaks
   * Created by zengxiaosen on 2017/5/17.
   */
 object  ETLProcess {
+  def showDataframe(rdd: RDD[Row]) = {
+    val sqlContext = SQLContext.getOrCreate(rdd.context)
+    val unionDF = new StatsCalculate(rdd, sqlContext).outputDF()
+
+    println(unionDF.count())
+    unionDF.show(10)
+    //print for debug
+
+  }
+
   private val ipMap = Map[String, String](
     "BeiJing" -> "01", "NeiMengGu" -> "02", "ShanXi" -> "03",
     "HeBei" -> "04", "TianJin" -> "05", "NingXia" -> "06",
@@ -57,16 +70,17 @@ object  ETLProcess {
     splitPattern
   }
 
+
+
   def isFileter(e: NginxLogEvent) = e !=null
 
   //过滤格式不规范的数据
   def badlineFilter(e: NginxLogEvent): Boolean = {
     (StringUtils.contains(e.url, "http://") || StringUtils.contains(e.url, "https://")) &&
-      (StringUtils.contains(e.method, "GET") || StringUtils.contains(e.method, "POST")) &&
       isNumber(e.eventTs) && isNumber(e.bodySize) && isNumber(e.responseTime)
   }
 
-  def isNumber(s: String): Boolean = s.matches("\\d+.?\\d+")
+  def isNumber(s: String): Boolean = s.matches("\\d+.?\\d*")
 
 
   def map2KV(x: NginxLogEvent) = {
