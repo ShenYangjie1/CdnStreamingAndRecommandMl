@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: sparkstreamingLocalTest.KafkaOperationtest
+Main-Class: vr.datasource.KafkaOperationtest
 
