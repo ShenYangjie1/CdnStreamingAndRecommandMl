@@ -16,32 +16,32 @@ class StatsCalculate (rowRDD: RDD[Row], sQLContext: SQLContext){
   private def areaDF: DataFrame = {
     sQLContext.sql(
       """SELECT SUM(requestTime) as requestTime,
-        |                    SUM(requestSize) as requestSize,
-        |                    SUM(xx2) as xx2,
-        |                    SUM(xx3) as xx3,
-        |                    SUM(xx4) as xx4,
-        |                    SUM(xx5) as xx5,
-        |                    SUM(requestNum) as requestNum,
-        |                    "00000" as domainCode,
-        |                    stateCode,
-        |                    eventTS
-        |                    FROM stats GROUP BY eventTS, stateCode"""
+                    SUM(requestSize) as requestSize,
+                    SUM(xx2) as xx2,
+                    SUM(xx3) as xx3,
+                    SUM(xx4) as xx4,
+                    SUM(xx5) as xx5,
+                    SUM(requestNum) as requestNum,
+                    "00000" as domainCode,
+                    stateCode,
+                    eventTS
+                    FROM stats GROUP BY eventTS, stateCode"""
     )
   }
 
   private def totalDF: DataFrame = {
     sQLContext.sql(
       """SELECT SUM(requestTime) as requestTime,
-        |                    SUM(requestSize) as requestSize,
-        |                    SUM(xx2) as xx2,
-        |                    SUM(xx3) as xx3,
-        |                    SUM(xx4) as xx4,
-        |                    SUM(xx5) as xx5,
-        |                    SUM(requestNum) as requestNum,
-        |                    "00000" as domainCode,
-        |                    "00" as stateCode,
-        |                    eventTS
-        |                    FROM stats GROUP BY eventTS"""
+                    SUM(requestSize) as requestSize,
+                    SUM(xx2) as xx2,
+                    SUM(xx3) as xx3,
+                    SUM(xx4) as xx4,
+                    SUM(xx5) as xx5,
+                    SUM(requestNum) as requestNum,
+                    "00000" as domainCode,
+                    "00" as stateCode,
+                    eventTS
+                    FROM stats GROUP BY eventTS"""
     )
   }
 

@@ -2,11 +2,17 @@ package extract
 
 import entity.{NginxLogEvent, StatsRecord}
 import org.apache.commons.lang.StringUtils
+import org.apache.hadoop.hbase.TableName
+import org.apache.hadoop.hbase.client.{ConnectionFactory, HBaseAdmin}
+import org.apache.hadoop.hbase.mapreduce.TableInputFormat
+import org.apache.hadoop.hbase.util.Bytes
+import org.apache.spark.SparkContext
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.{Row, SQLContext}
+import org.apache.spark.sql.{DataFrame, Row, SQLContext}
 import prototype.StatsCalculate
-import utils.{ConfigLoader, DateUtils, IPService}
+import test.HBaseLocalTest
+import utils.{ConfigLoader, DateUtils, HBaseUtils, IPService}
 
 import scala.util.control.Breaks
 
@@ -14,13 +20,49 @@ import scala.util.control.Breaks
   * Created by zengxiaosen on 2017/5/17.
   */
 object  ETLProcess {
-  def showDataframe(rdd: RDD[Row]) = {
-    val sqlContext = SQLContext.getOrCreate(rdd.context)
-    val unionDF = new StatsCalculate(rdd, sqlContext).outputDF()
+  def showDataframe(rdd: RDD[Row], sQLContext : SQLContext) : DataFrame = {
+    //val sqlContext = SQLContext.getOrCreate(rdd.context)
+    val unionDF = new StatsCalculate(rdd, sQLContext).outputDF()
 
     println(unionDF.count())
     unionDF.show(10)
     //print for debug
+
+    unionDF
+
+  }
+
+  def processWithHbase(sc: SparkContext) = {
+    val namespaceTable = ConfigLoader.namespaceTable
+    val userTable = TableName.valueOf(namespaceTable)
+    val conf = HBaseUtils.createHBaseConf()
+    //val admin = new HBaseAdmin(conf)
+    //HBaseUtils.readTableData(admin, namespaceTable)
+    // Connection的创建是个重量级的工作，线程安全，是操作hbase的入口
+//    val connection = ConnectionFactory.createConnection(conf)
+//    try{
+//
+//      //扫描整个表
+//      HBaseLocalTest.scanRecord(connection, "cdn:server0510", "4XX", "713")
+//
+//    }finally {
+//      connection.close()
+//    }
+    //设置查询的表名
+    conf.set(TableInputFormat.INPUT_TABLE, "cdn:server0510")
+    val resultRdd = sc.newAPIHadoopRDD(conf, classOf[TableInputFormat],
+    classOf[org.apache.hadoop.hbase.io.ImmutableBytesWritable],
+    classOf[org.apache.hadoop.hbase.client.Result])
+
+    val count = resultRdd.count()
+    println("Result RDD Count: " + count)
+    resultRdd.cache()
+    // 遍历输出
+//    resultRdd.foreach{
+//      case (_, result) =>
+//        val key = Bytes.toInt(result.getRow)
+//        val name = Bytes.toString(result.getValue("requestTime"), result.getValue("requestSize"))
+//    }
 
   }
 
@@ -55,6 +97,8 @@ object  ETLProcess {
     }
     else null
   }
+
+  def isFilter(e: NginxLogEvent): Boolean = e != null
 
   def formatLine(e: String): String = {
     StringUtils.replace(e, "; ","; ")

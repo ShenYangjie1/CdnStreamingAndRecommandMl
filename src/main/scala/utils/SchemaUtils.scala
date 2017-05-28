@@ -62,4 +62,54 @@ object SchemaUtils {
     ))
   }
 
+  def getServerStatsSchema: StructType = {
+    StructType(Seq(
+      StructField("requestTime", DoubleType, nullable = true),
+      StructField("requestSize", LongType, nullable = true),
+      StructField("xx2", LongType, nullable = true),
+      StructField("xx3", LongType, nullable = true),
+      StructField("xx4", LongType, nullable = true),
+      StructField("xx5", LongType, nullable = true),
+      StructField("requestNum", LongType, nullable = true),
+      StructField("dstIP", StringType, nullable = true),
+      StructField("serverRoom", StringType, nullable = true),
+      StructField("writeFlag", IntegerType, nullable = true),
+      StructField("eventTS", LongType, nullable = true)
+    ))
+  }
+
+  def getEngineStatsSchema: StructType = {
+    StructType(Seq(
+      StructField("requestTime", DoubleType, nullable = true),
+      StructField("requestSize", LongType, nullable = true),
+      StructField("xx2", LongType, nullable = true),
+      StructField("xx3", LongType, nullable = true),
+      StructField("xx4", LongType, nullable = true),
+      StructField("xx5", LongType, nullable = true),
+      StructField("requestNum", LongType, nullable = true),
+      StructField("engineRoom", StringType, nullable = true),
+      StructField("engine", StringType, nullable = true),
+      StructField("logType", StringType, nullable = true),
+      StructField("writeFlag", IntegerType, nullable = true),
+      StructField("eventTS", LongType, nullable = true)
+    ))
+  }
+
+  def getNginxRoomDomainStatsSchema: StructType = {
+    StructType(Seq(
+      StructField("requestTime", DoubleType, nullable = true),
+      StructField("requestSize", LongType, nullable = true),
+      StructField("xx2", LongType, nullable = true),
+      StructField("xx3", LongType, nullable = true),
+      StructField("xx4", LongType, nullable = true),
+      StructField("xx5", LongType, nullable = true),
+      StructField("requestNum", LongType, nullable = true),
+      StructField("engineRoom", StringType, nullable = true),
+      StructField("engine", StringType, nullable = true),
+      StructField("domainCode", StringType, nullable = true),
+      StructField("businessCode", StringType, nullable = true),
+      StructField("writeFlag", IntegerType, nullable = true),
+      StructField("eventTS", LongType, nullable = true)
+    ))
+  }
 }

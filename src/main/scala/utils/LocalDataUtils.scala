@@ -16,10 +16,10 @@ object LocalDataUtils {
     if (filedata == null)
       println("data is null")
     val filedataRdd = filedata.collect()
-    filedataRdd.foreach(s =>{
-      println("enter")
-      println("row "+s)}
-    )
+//    filedataRdd.foreach(s =>{
+//      println("enter")
+//      println("row "+s)}
+//    )
 
     filedata
   }

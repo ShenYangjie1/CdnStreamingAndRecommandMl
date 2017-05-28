@@ -4,14 +4,19 @@ import entity.{IPRegion, NginxLogEvent, StatsRecord}
 import extract.ETLProcess
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.{Row, SQLContext}
+import org.apache.spark.sql.{DataFrame, Row, SQLContext}
 import org.apache.spark.{SparkConf, SparkContext}
 import utils.{BroadcastUtils, IPService, LocalDataUtils}
+import java.util.regex.Pattern
 
+import org.apache.commons.lang.StringUtils
+import org.joda.time.DateTime
 /**
   * Created by zengxiaosen on 2017/5/17.
   */
 object LocalProcess {
+
+
 
   def main(args: Array[String]) {
     val sparkConf = new SparkConf()
@@ -27,17 +32,21 @@ object LocalProcess {
     val sqlContext = new SQLContext(sc)
 
     process(sc,sqlContext)
+    //process1(sc, sqlContext)
   }
 
 
-  def processShow(etlRdd: RDD[NginxLogEvent]): Unit = {
+  def processShow(etlRdd: RDD[NginxLogEvent], sQLContext: SQLContext) = {
     print("====================== output ========================")
     val finalRdd = etlRdd.map(ETLProcess.map2KV(_))
     .reduceByKey((a: StatsRecord, b: StatsRecord) => StatsRecord.add(a, b), 108)
     .map(_._2)
     .map(x => Row(x.reqTime, x.bodySize, x.xx2, x.xx3, x.xx4, x.xx5, x.requestNum, x.domainCode, x.stateCode, x.ts))
+    val resultDataframe = ETLProcess.showDataframe(finalRdd, sQLContext)
 
-    ETLProcess.showDataframe(finalRdd)
+    //ETLProcess.processWithHbase()
+
+
   }
 
 
@@ -68,7 +77,9 @@ object LocalProcess {
     println("======================")
     val etlRdd = processETL(localdata, businessMap, ipArray)
     //打印
-    processShow(etlRdd)
+    processShow(etlRdd, sQLContext)
+
+
 
   }
 
