@@ -7,30 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73520f85-83f2-48bf-a522-d6c29fe85f69" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ansj_ansj_seg_5_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_nlpcn_nlp_lang_1_7_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/vr/Utils/ChineseHandle.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/vr/func/CreateDict.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest$$anonfun$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest$$anonfun$updateUvUtmCountState$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest$$anonfun$updateUvUtmCountState$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vr/datasource/KafkaOperationtest.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/test/test1$$anonfun$main$1.class" afterPath="$PROJECT_DIR$/target/classes/test/test1$$anonfun$main$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/test/test1$.class" afterPath="$PROJECT_DIR$/target/classes/test/test1$.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_8_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sparkTestLocal.iml" afterPath="$PROJECT_DIR$/sparkTestLocal.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/test/test1.scala" afterPath="$PROJECT_DIR$/src/main/scala/test/test1.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/vr/datasource/KafkaOperationtest.scala" afterPath="$PROJECT_DIR$/src/main/scala/vr/datasource/KafkaOperationtest.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/vr/entity/NewVideo.scala" afterPath="$PROJECT_DIR$/src/main/scala/vr/entity/NewVideo.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.conf" afterPath="$PROJECT_DIR$/target/classes/application.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/vr/Utils/UserInfoUtils.scala" afterPath="$PROJECT_DIR$/src/main/scala/vr/Utils/UserInfoUtils.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -60,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/scala/vr/func/CreateDict.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+              <caret line="37" column="39" lean-forward="false" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
               <folding>
                 <element signature="e#17#55#0" expanded="true" />
               </folding>
@@ -68,7 +49,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChineseHandle.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChineseHandle.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/vr/Utils/ChineseHandle.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="659">
@@ -80,11 +61,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="UserInfoUtils.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/vr/Utils/UserInfoUtils.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="618">
+              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+              <folding>
+                <element signature="e#18#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="637">
+              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -191,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/sohu/rdc/inf/cdn/offline/mr/CDNFilterMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sohu/rdc/inf/cdn/offline/mr/CDNOfflineJob.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sohu/rdc/inf/cdn/offline/test/HBaseReadJob.java" />
         <option value="$PROJECT_DIR$/src/main/scala/utils/HBaseUtils.scala" />
@@ -239,9 +231,10 @@
         <option value="$PROJECT_DIR$/src/main/scala/test/test1.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/vr/entity/NewVideo.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/vr/datasource/KafkaOperationtest.scala" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/scala/vr/func/CreateDict.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/vr/Utils/ChineseHandle.scala" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/scala/vr/Utils/UserInfoUtils.scala" />
       </list>
     </option>
   </component>
@@ -1183,7 +1176,7 @@
       <workItem from="1495197123319" duration="4164000" />
       <workItem from="1495264827749" duration="116018000" />
       <workItem from="1495794459099" duration="15329000" />
-      <workItem from="1495858824797" duration="30635000" />
+      <workItem from="1495858824797" duration="32241000" />
     </task>
     <task id="LOCAL-00001" summary="bigdataprocess of cdn">
       <created>1495177479993</created>
@@ -1196,7 +1189,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198741000" />
+    <option name="totallyTimeSpent" value="200347000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="946" y="0" width="966" height="1040" extended-state="0" />
@@ -1223,8 +1216,8 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17290749" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19713657" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17290749" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19713657" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2803532" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1255,13 +1248,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/prototype/EngineStatusCalculate.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="74" column="17" lean-forward="false" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/entity/AlertEvent.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -1633,18 +1619,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/vr/func/CreateDict.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+          <caret line="37" column="39" lean-forward="false" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
           <folding>
             <element signature="e#17#55#0" expanded="true" />
           </folding>
@@ -1673,6 +1651,24 @@
           <caret line="3828" column="10" lean-forward="false" selection-start-line="3828" selection-start-column="10" selection-end-line="3828" selection-end-column="10" />
           <folding>
             <element signature="e#69#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/vr/Utils/UserInfoUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="e#18#51#0" expanded="true" />
           </folding>
         </state>
       </provider>

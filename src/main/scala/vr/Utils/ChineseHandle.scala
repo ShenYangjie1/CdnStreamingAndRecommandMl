@@ -13,7 +13,22 @@ object ChineseHandle {
   def getWordStr(content: String): String = {
     val tokens = chineseToken(content)
     val filtertokensWithoutNature = stopwordFilter(tokens)
+    filtertokensWithoutNature.toStringWithOutNature(" ")
+  }
 
+  def filterChinese(content:String): String = {
+    val newcontent = content.replaceAll("[^(\\u4e00-\\u9fa5)]", "")
+    newcontent
+  }
+
+  def chineseKeyWordCompute(title: String, content: String, len: Int): String = {
+    val kwc = new KeyWordComputer(len);
+    val result = kwc.computeArticleTfidf(title, content);
+    var s = ""
+    for(i <- 0 to result.size()-1){
+      s += result.get(i).getName() + " ";
+    }
+    s
   }
 
   def chineseToken(content: String): Result = {

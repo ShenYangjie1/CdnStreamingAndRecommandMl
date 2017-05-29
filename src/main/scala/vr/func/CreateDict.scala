@@ -35,7 +35,11 @@ object CreateDict {
       implicit val formats = DefaultFormats
       val video = videoProfile.extract[Video]
       //利用标题，描述，标签所有信息
-      val content = ChineseHandle.getWordStr(video.video_title+video.video_describe+video.video_tag).split(" ")
+      val content1 = ChineseHandle.getWordStr(video.video_title+video.video_describe+video.video_tag).split(" ")
+      //根据标题，描述，标签提取关键字后的信息
+      val content2 = ChineseHandle.chineseKeyWordCompute(ChineseHandle.getWordStr(video.video_title+video.video_tag),
+        ChineseHandle.getWordStr(video.video_title+video.video_tag+video.video_describe), 10).split(" ")
+
       //只用标签信息
       val content = video.video_tag.split(",")
       (item._1, video.video_title, content)
@@ -50,14 +54,14 @@ object CreateDict {
 
     jedis.select(5)
     //利用视频的标签生成一个字典
-    var count = 0
-    dataSet.foreach(video=>{
-      video._3.foreach(word=>{
+    var count=0
+    dataSet.foreach(video =>{
+      video._3.foreach(word =>{
         if(video._3.length>0){
-          video._3.foreach(word=>{
+          video._3.foreach(word =>{
             if(word.trim!=""){
-              if(jedis.setnx(word.trim, count.toString)==1){
-                count += 1
+              if(jedis.setnx(word.trim,count.toString)==1){
+                count+=1
               }
             }
           })
